@@ -16,7 +16,7 @@ public class CandidateController {
         candidates.add(new CandidateModel(++candidateCount, "wiiw", "1122334455", "1122334455"));
     }
 
-    @RequestMapping("/allCondidates")
+    @RequestMapping("/allCandidates")
     public ArrayList<CandidateModel> getCondidates() {
         return candidates;
     }
