@@ -2,9 +2,11 @@ package com.autoecole.amjalal.controllers;
 
 import com.autoecole.amjalal.models.CandidateModel;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 
+@RestController
 public class CandidateController {
     public static ArrayList<CandidateModel> candidates = new ArrayList<>();
     public static int candidateCount = 0;
@@ -17,7 +19,7 @@ public class CandidateController {
     }
 
     @RequestMapping("/allCandidates")
-    public ArrayList<CandidateModel> getCondidates() {
+    public ArrayList<CandidateModel> getCandidates() {
         return candidates;
     }
 }
