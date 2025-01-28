@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidates</title>
+    <style>
+        .candidatesContainer{
+            border: solid 1px black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="candidatesContainer" th:each="candidate : ${candidates}">
+    <div>
+        <p>candidate id: </p> <p th:text="${candidate.getId()}"></p>
+    </div>
+    <div>
+        <p>candidate first name : </p> <p th:text="${candidate.getFirstName()}"></p>
+    </div>
+    <div>
+        <p>candidate last name : </p> <p th:text="${candidate.getLastName()}"></p>
+    </div>
+    <div>
+        <p>candidate CIN: </p> <p th:text="${candidate.getCin()}"></p>
+    </div>
+    <div>
+        <p>candidate phone number: </p> <p th:text="${candidate.getPhoneNumber()}"></p>
+    </div>
+    <div>
+        <p>candidate facebookURL : </p> <p th:text="${candidate.getFacebookUrl()}"></p>
+    </div>
+</div>
+
+</body>
+</html>
