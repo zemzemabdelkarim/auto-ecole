@@ -4,33 +4,52 @@
     <meta charset="UTF-8">
     <title>Candidates</title>
     <style>
-        .candidatesContainer{
-            border: solid 1px black;
+        .candidateContainer{
+            border: solid 1px lightslategray;
+            margin-bottom: 5px;
+            padding: 0 8px;
         }
+        .description{
+            display: flex;
+            justify-content: space-around;
+        }
+        .candidateContainer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .edit{
+            padding: 0 8px;
+            height: 30px;
+            justify-self: center;
+        }
+
     </style>
 </head>
 <body>
-
-<div class="candidatesContainer" th:each="candidate : ${candidates}">
-    <div>
+<div class="candidatesContainer">
+<div class="candidateContainer" th:each="candidate : ${candidates}">
+    <div class="description">
         <p>candidate id: </p> <p th:text="${candidate.getId()}"></p>
     </div>
-    <div>
+    <div class="description">
         <p>candidate first name : </p> <p th:text="${candidate.getFirstName()}"></p>
     </div>
-    <div>
+    <div class="description">
         <p>candidate last name : </p> <p th:text="${candidate.getLastName()}"></p>
     </div>
-    <div>
-        <p>candidate CIN: </p> <p th:text="${candidate.getCin()}"></p>
-    </div>
-    <div>
+    <div class="description">
         <p>candidate phone number: </p> <p th:text="${candidate.getPhoneNumber()}"></p>
     </div>
-    <div>
-        <p>candidate facebookURL : </p> <p th:text="${candidate.getFacebookUrl()}"></p>
+  <!--  <div class="description">
+        <p>candidate CIN: </p> <p th:text="${candidate.getCin()}"></p>
     </div>
+    <div class="description">
+        <p>candidate facebookURL : </p> <p th:text="${candidate.getFacebookUrl()}"></p>
+    </div>-->
+    <button class="edit">edit</button>
 </div>
-
+</div>
+<button onclick="location.href='/addCandidate'">add candidate</button>
 </body>
 </html>

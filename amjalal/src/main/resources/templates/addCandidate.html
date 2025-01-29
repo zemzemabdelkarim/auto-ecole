@@ -7,8 +7,8 @@
 <body>
 
 <form th:action="addCandidate" th:method="post" th:object="${candidate}">
-  <label for="id">enter an id  : </label>
-  <input type="number" id="id" th:field="*{id}"><br>
+  <!--<label for="id">enter an id  : </label>
+  <input type="number" id="id" th:field="*{id}"><br>-->
 
   <label for="firstName">enter first name  : </label>
   <input type="text" id="firstName" th:field="*{firstName}"><br>
@@ -25,7 +25,8 @@
   <label for="facebookUrl">enter facebookUrl  : </label>
   <input type="text" id="facebookUrl" th:field="*{facebookUrl}"><br>
 
-  <button type="submit">Submit</button>
+  <button type="submit" onclick="location.href='/candidates'">Submit</button>
+  <button type="reset" onclick="location.href='/candidates'">Return</button>
 
 </form>
 

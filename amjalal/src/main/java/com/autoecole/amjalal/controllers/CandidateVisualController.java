@@ -18,11 +18,11 @@ public class CandidateVisualController {
         this.candidateService = candidateService;
     }
 
-    @GetMapping("/showFirstCandidate")
+    /*@GetMapping("/showFirstCandidate")
     public String showFirstCandidate(Model model) {
         model.addAttribute("firstCandidate", candidateService.getFirstCandidate());
         return "showFirstCandidate";
-    }
+    }*/
 
     @GetMapping("/candidates")
     public String showCandidates(Model model) {
@@ -32,14 +32,14 @@ public class CandidateVisualController {
 
     @GetMapping("/addCandidate")
     public String addCandidate(Model model) {
-        model.addAttribute("candidate", new CandidateModel());
+        model.addAttribute("candidate", new CandidateModel(0,"","","","",""));
         return "addCandidate";
     }
 
     @PostMapping("/addCandidate")
-    public String addCandidate(@ModelAttribute("candidate") CandidateModel candidate) {
+    public void addCandidate(@ModelAttribute("candidate") CandidateModel candidate) {
         //System.out.println(candidate);
         candidateService.add(candidate);
-        return "addCandidate";
+        //return "addCandidate";
     }
 }
