@@ -25,10 +25,10 @@ public class CandidateController {
         return candidateService.getAllCandidates();
     }
 
-    @GetMapping("/getFirstCandidate")
+    /*@GetMapping("/getFirstCandidate")
     public CandidateModel getFirstCandidate() {
         return candidateService.getFirstCandidate();
-    }
+    }*/
 
     @PostMapping("/addCandidate")
     public String addCandidate(@RequestBody CandidateModel candidate) {

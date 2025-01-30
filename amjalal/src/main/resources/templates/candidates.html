@@ -18,13 +18,14 @@
             justify-content: space-between;
             align-items: center;
         }
-        .edit{
+        .view{
             padding: 0 8px;
             height: 30px;
             justify-self: center;
         }
 
     </style>
+
 </head>
 <body>
 <div class="candidatesContainer">
@@ -47,7 +48,9 @@
     <div class="description">
         <p>candidate facebookURL : </p> <p th:text="${candidate.getFacebookUrl()}"></p>
     </div>-->
-    <button class="edit">edit</button>
+    <!--<button class="view" th:onclick="'location.href=\'/candidates/\'+${}'">View</button>-->
+    <!--<button class="view" th:onclick="'javascript:location.href=\'/candidates/' + ${candidate.getId()} +';'">View</button>-->
+    <button class="view" th:attr="onclick=|location.href='/candidates/'+${candidate.getId()}|">View</button>
 </div>
 </div>
 <button onclick="location.href='/addCandidate'">add candidate</button>

@@ -13,16 +13,17 @@ public class CandidateService {
     private static int candidateCount;
     public CandidateService() {
         candidates = new ArrayList<>();
-        candidates.add(new CandidateModel());
-        candidates.add(new CandidateModel());
+        candidates.add(new CandidateModel(1, "abdel karim", "zemzem", "1122334455","21153431","facebook"));
+        candidates.add(new CandidateModel(2, "ahmed", "bechikh", "5442688544", "22155225", "hmed facebook"));
+        candidateCount = candidates.size();
     }
     public ArrayList<CandidateModel> getAllCandidates() {
         return candidates;
     }
 
-    public CandidateModel getFirstCandidate() {
+    /*public CandidateModel getFirstCandidate() {
         return candidates.get(0);
-    }
+    }*/
 
     public CandidateModel findCandidateById (int id) {
         for (CandidateModel candidate : candidates) {
