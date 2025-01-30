@@ -85,4 +85,18 @@ public class CandidateModel {
                 ", facebookUrl='" + facebookUrl + '\'' +
                 '}';
     }
+
+    //@Override
+    public boolean equals(CandidateModel obj) {
+        if(this.getId() == obj.getId()
+                && this.getFirstName().equals(obj.getFirstName())
+                && this.getLastName().equals(obj.getLastName())
+                && this.getCin().equals(obj.getCin())
+                && this.getFacebookUrl().equals(obj.getFacebookUrl())
+                && this.getPhoneNumber().equals(obj.getPhoneNumber())
+        ){
+            return true;
+        }
+        return false;
+    }
 }

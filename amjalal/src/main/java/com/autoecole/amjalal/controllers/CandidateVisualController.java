@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+
 @Controller
 public class CandidateVisualController {
     private final CandidateService candidateService;
@@ -31,13 +33,21 @@ public class CandidateVisualController {
         return "candidates";
     }
 
+    @GetMapping("/candidates/{key}")
+    public String showCandidate(@PathVariable String key, Model model) {
+        ArrayList<CandidateModel> c = candidateService.searchCandidate(key);
+        System.out.println(c);
+        model.addAttribute("candidates", c);
+        return "candidates";
+    }
+
     @GetMapping("/addCandidate")
     public String addCandidate(Model model) {
         model.addAttribute("candidate", new CandidateModel(0,"","","","",""));
         return "addCandidate";
     }
 
-    @GetMapping("/candidates/{id}")
+    @GetMapping("/candidates/editCandidate/{id}")
     public String getCandidate(Model model, @PathVariable(value = "id") String id) {
         try {
             CandidateModel candidate = candidateService.findCandidateById(Integer.parseInt(id));
