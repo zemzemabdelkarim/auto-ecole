@@ -7,8 +7,8 @@ public class SessionModel {
     private int candidateId;
     private Date date;
     private String time;
+    private int numberOfHours;
     private boolean isTest;
-    private boolean isPayed;
 
     public SessionModel() {
         this.id = -1;
@@ -16,16 +16,15 @@ public class SessionModel {
         this.date = null;
         this.time = null;
         this.isTest = false;
-        this.isPayed = false;
     }
 
-    public SessionModel(int id, int candidateId, Date date, String time, boolean isTest, boolean isPayed) {
+    public SessionModel(int id, int candidateId, Date date, String time, int numberOfHours, boolean isTest) {
         this.id = id;
         this.candidateId = candidateId;
         this.date = date;
         this.time = time;
+        this.numberOfHours = numberOfHours;
         this.isTest = isTest;
-        this.isPayed = isPayed;
     }
 
     public int getId() {
@@ -60,6 +59,14 @@ public class SessionModel {
         this.time = time;
     }
 
+    public int getNumberOfHours() {
+        return numberOfHours;
+    }
+
+    public void setNumberOfHours(int numberOfHours) {
+        this.numberOfHours = numberOfHours;
+    }
+
     public boolean isTest() {
         return isTest;
     }
@@ -68,11 +75,4 @@ public class SessionModel {
         isTest = test;
     }
 
-    public boolean isPayed() {
-        return isPayed;
-    }
-
-    public void setPayed(boolean payed) {
-        isPayed = payed;
-    }
 }
