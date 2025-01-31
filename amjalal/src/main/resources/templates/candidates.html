@@ -4,43 +4,13 @@
     <meta charset="UTF-8">
     <title>Candidates</title>
     <style>
-        .candidateContainer{
-            border: solid 1px lightslategray;
-            margin-bottom: 5px;
-            padding: 0 8px;
-        }
-        .description{
-            display: flex;
-            justify-content: space-around;
-        }
-        .candidateContainer{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .view{
-            padding: 0 8px;
-            height: 30px;
-            justify-self: center;
-        }
-
-        .searchBar{
-            width: 70%;
-        }
-
-        .search{
-            margin-bottom: 8px;
-
-            display: flex;
-            justify-content: center;
-        }
-
     </style>
+    <link rel="stylesheet" href="/candidates.css">
 
 </head>
 <body>
 <div class="search">
-    <input class="searchBar" id="search" type="text">
+    <input class="searchBar" id="search" type="text" th:value="${key}">
     <button th:attr="onclick=|location.href='/candidates/'+document.getElementById('search').value|">Search</button>
     <button th:attr="onclick=|location.href='/candidates'|">Cancel search</button>
 </div>
@@ -58,14 +28,6 @@
     <div class="description">
         <p>candidate phone number: </p> <p th:text="${candidate.getPhoneNumber()}"></p>
     </div>
-  <!--  <div class="description">
-        <p>candidate CIN: </p> <p th:text="${candidate.getCin()}"></p>
-    </div>
-    <div class="description">
-        <p>candidate facebookURL : </p> <p th:text="${candidate.getFacebookUrl()}"></p>
-    </div>-->
-    <!--<button class="view" th:onclick="'location.href=\'/candidates/\'+${}'">View</button>-->
-    <!--<button class="view" th:onclick="'javascript:location.href=\'/candidates/' + ${candidate.getId()} +';'">View</button>-->
     <button class="view" th:attr="onclick=|location.href='/candidates/editCandidate/'+${candidate.getId()}|">View</button>
 </div>
 </div>

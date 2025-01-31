@@ -21,15 +21,10 @@ public class CandidateVisualController {
         this.candidateService = candidateService;
     }
 
-    /*@GetMapping("/showFirstCandidate")
-    public String showFirstCandidate(Model model) {
-        model.addAttribute("firstCandidate", candidateService.getFirstCandidate());
-        return "showFirstCandidate";
-    }*/
-
     @GetMapping("/candidates")
     public String showCandidates(Model model) {
         model.addAttribute("candidates", candidateService.getAllCandidates());
+        model.addAttribute("key", "");
         return "candidates";
     }
 
@@ -38,6 +33,7 @@ public class CandidateVisualController {
         ArrayList<CandidateModel> c = candidateService.searchCandidate(key);
         System.out.println(c);
         model.addAttribute("candidates", c);
+        model.addAttribute("key", key);
         return "candidates";
     }
 
@@ -60,8 +56,6 @@ public class CandidateVisualController {
 
     @PostMapping("/addCandidate")
     public void addCandidate(@ModelAttribute("candidate") CandidateModel candidate) {
-        //System.out.println(candidate);
         candidateService.add(candidate);
-        //return "addCandidate";
     }
 }
