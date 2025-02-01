@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sessions</title>
+    <link rel="stylesheet" href="/sessions.css">
+</head>
+<body>
+
+<div class="sessionsContainer">
+  <div th:each="s: ${sessions}" class="sessionContainer">
+    <div class="description">
+        <p>Session id : </p> <p th:text="${s.getId()}" />
+    </div>
+
+      <div class="description">
+          <p>Candidate id : </p> <p th:text="${s.getCandidateId()}" />
+      </div>
+
+      <div class="description">
+          <p>Date : </p> <p th:text="${s.getDate()}" />
+      </div>
+
+  </div>
+</div>
+
+<button onclick="location.href='/addSession'">Add Session</button>
+
+</body>
+</html>
