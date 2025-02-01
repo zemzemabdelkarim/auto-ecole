@@ -56,7 +56,7 @@ public class SessionService {
 
     public void addSession(SessionModel session) {
         if (candidateService.findCandidateById(session.getCandidateId()) != null) {
-            session.setId(sessionsCount++);
+            session.setId(++sessionsCount);
             sessions.add(session);
         }
     }

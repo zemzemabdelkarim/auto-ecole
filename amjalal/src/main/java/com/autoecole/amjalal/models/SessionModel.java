@@ -1,12 +1,14 @@
 package com.autoecole.amjalal.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class SessionModel {
     private int id;
     private int candidateId;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date date;
-    private String time;
     private int numberOfHours;
     private boolean isTest;
 
@@ -14,7 +16,6 @@ public class SessionModel {
         this.id = -1;
         this.candidateId = -1;
         this.date = null;
-        this.time = null;
         this.isTest = false;
     }
 
@@ -22,7 +23,6 @@ public class SessionModel {
         this.id = id;
         this.candidateId = candidateId;
         this.date = date;
-        this.time = time;
         this.numberOfHours = numberOfHours;
         this.isTest = isTest;
     }
@@ -51,13 +51,7 @@ public class SessionModel {
         this.date = date;
     }
 
-    public String getTime() {
-        return time;
-    }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
 
     public int getNumberOfHours() {
         return numberOfHours;
@@ -67,12 +61,16 @@ public class SessionModel {
         this.numberOfHours = numberOfHours;
     }
 
-    public boolean isTest() {
+    public boolean getIsTest() {
         return isTest;
     }
 
-    public void setTest(boolean test) {
+    public void setIsTest(boolean test) {
         isTest = test;
     }
 
+    public String toString() {
+        return "Session : { id = " + id + ", candidateId = " + candidateId + ", date = " + date +
+                ", numberOfHours = " + numberOfHours + ", isTest = " + isTest + " }";
+    }
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add session</title>
+</head>
+<body>
+
+<form th:action="addSession" method="post" th:object="${s}">
+    <label for="candidateId" >Candidate id : </label>
+    <input type="number" id="candidateId" th:field="*{candidateId}"><br><br>
+
+    <label for="date">Date : </label>
+    <input id="date" type="datetime-local" th:field="${s.date}"><br><br>
+
+    <label for="numberOfHours">Number of hours : </label>
+    <input id="numberOfHours" type="number" th:field="*{numberOfHours}"><br><br>
+
+    <label for="isTest">Is test : </label>
+    <input type="checkbox" id="isTest" name="isTest" th:checked="*{isTest}"><br><br>
+
+    <button type="submit" onclick="console.log(document.getElementById('date').value)">Submit</button>
+    <button type="reset" onclick="location.href='/sessions'">Cancel</button>
+</form>
+
+</body>
+</html>
